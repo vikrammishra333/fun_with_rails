@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :users_roles
   has_many :roles, :through => :users_roles
+  has_and_belongs_to_many :blogs
 
   def current_role
     roles.active_role.first.title

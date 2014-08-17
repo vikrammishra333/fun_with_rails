@@ -1,18 +1,12 @@
 BlogEngine::Application.routes.draw do
  
+  resources :blogs
+  resources :categories
+  resources :posts
+  resources :tags
   devise_for :users
 
-  resources :tags
-
-
-  resources :categories
-
-
-  resources :posts
-
-  resources :users, :only => [:index, :show]
-
-  root :to => "posts#index"
+  root :to => "blogs#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

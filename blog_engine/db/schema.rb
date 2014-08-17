@@ -11,7 +11,32 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140812043800) do
+ActiveRecord::Schema.define(:version => 20140812195435) do
+
+  create_table "blogs", :force => true do |t|
+    t.string   "title"
+    t.string   "blog_address"
+    t.text     "description"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "blogs_users", :id => false, :force => true do |t|
+    t.integer "blog_id"
+    t.integer "user_id"
+  end
+
+  add_index "blogs_users", ["blog_id", "user_id"], :name => "index_blogs_users_on_blog_id_and_user_id", :unique => true
+  add_index "blogs_users", ["user_id"], :name => "index_blogs_users_on_user_id"
+
+  create_table "blogs_users_roles", :id => false, :force => true do |t|
+    t.integer "users_role_id"
+    t.integer "blog_id"
+  end
+
+  add_index "blogs_users_roles", ["blog_id"], :name => "index_users_roles_blogs_on_blog_id"
+  add_index "blogs_users_roles", ["users_role_id", "blog_id"], :name => "index_users_roles_blogs_on_users_role_id_and_blog_id", :unique => true
+  add_index "blogs_users_roles", ["users_role_id"], :name => "index_users_roles_blogs_on_users_role_id"
 
   create_table "categories", :force => true do |t|
     t.text     "title"
@@ -25,9 +50,11 @@ ActiveRecord::Schema.define(:version => 20140812043800) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "author_id"
+    t.integer  "blog_id"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_author_id"
+  add_index "posts", ["blog_id"], :name => "index_posts_on_blog_id"
 
   create_table "posts_categories", :id => false, :force => true do |t|
     t.integer "post_id",     :null => false

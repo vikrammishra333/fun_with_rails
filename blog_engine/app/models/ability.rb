@@ -9,6 +9,7 @@ class Ability
       when 'Admin'
         can :manage, :all
       when 'Blog Owner'
+        can :manage, Blog, :users => {:id => user.id}
       when 'Blog Contributor'
       when 'Blog Subscriber'
       else
