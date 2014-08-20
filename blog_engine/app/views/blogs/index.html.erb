@@ -9,17 +9,9 @@
     <th></th>
     <th></th>
   </tr>
-
-<% @blogs.each do |blog| %>
-  <tr>
-    <td><%= blog.title %></td>
-    <td><%= blog.blog_address %></td>
-    <td><%= blog.description %></td>
-    <td><%= link_to 'Show', blog %></td>
-    <td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-    <td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+  <% @blogs.each do |role, blogs| %>
+    <%= render :partial => "blogs/blog", :collection => blogs unless blogs.empty? %>
+  <% end %>
 </table>
 
 <br />
