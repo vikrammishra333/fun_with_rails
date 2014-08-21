@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(:version => 20140818201309) do
     t.datetime "updated_at",   :null => false
   end
 
-  create_table "blogs_users", :id => false, :force => true do |t|
-    t.integer "blog_id"
-    t.integer "user_id"
-  end
-
-  add_index "blogs_users", ["blog_id", "user_id"], :name => "index_blogs_users_on_blog_id_and_user_id", :unique => true
-  add_index "blogs_users", ["user_id"], :name => "index_blogs_users_on_user_id"
-
   create_table "blogs_users_roles", :id => false, :force => true do |t|
     t.integer "users_role_id"
     t.integer "blog_id"

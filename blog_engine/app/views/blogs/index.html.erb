@@ -1,19 +1,14 @@
-<h1>Listing blogs</h1>
-
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Blog address</th>
-    <th>Description</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-  <% @blogs.each do |role, blogs| %>
-    <%= render :partial => "blogs/blog", :collection => blogs unless blogs.empty? %>
+<%= title "My Sites" %>
+<div class="page-header" style="margin:0;">
+  <h2 style="font-weight: inherit; font-size: 24px; line-height: 1;">My Sites</h2>
+</div>
+<div class="span3" style="border-right: 1px solid blue; min-height: 500px; margin-left: 0;">
+  Here's an overview of your WordPress sites. From here, you can manage your posts, pages, comments, and your WordPress site's appearance.Create Another WordPress. Upgrade your self-hosted WordPress site and see it here by connecting Jetpack.
+</div>
+<div class="span5">
+  <%= @blogs %>
+  <% @blogs.each do |user_role, blog_array| %>
+    <h5><%= blogs_access(user_role) %></h5>
+    <%= render :partial => "blogs/blog", :collection => Blog.all %>
   <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Blog', new_blog_path %>
+</div>
