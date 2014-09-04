@@ -36,7 +36,8 @@ class BlogsController < ApplicationController
 
   def create
     @blog = Blog.new(params[:blog])
-
+    @blog.users_roles << UsersRole.user_active_role(current_user)
+    
     respond_to do |format|
       if @blog.save
         format.html { redirect_to @blog, notice: 'Blog was successfully created.' }

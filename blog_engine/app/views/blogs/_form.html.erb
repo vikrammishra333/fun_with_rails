@@ -11,9 +11,6 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.fields_for :blogs_users_roles do |user_role_form| %>
-      <%= user_role_form.hidden_field :role_id, :value => 2 %>
-    <% end %>
     <%= f.label :title %><br />
     <%= f.text_field :title %>
   </div>

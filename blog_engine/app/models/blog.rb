@@ -1,6 +1,6 @@
 class Blog < ActiveRecord::Base
   attr_accessible :blog_address, :description, :title
-
+  
   validates :blog_address, :presence => true
   validates :title, :presence => true
 

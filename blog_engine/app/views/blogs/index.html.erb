@@ -3,12 +3,11 @@
   <h2 style="font-weight: inherit; font-size: 24px; line-height: 1;">My Sites</h2>
 </div>
 <div class="span3" style="border-right: 1px solid blue; min-height: 500px; margin-left: 0;">
-  Here's an overview of your WordPress sites. From here, you can manage your posts, pages, comments, and your WordPress site's appearance.Create Another WordPress. Upgrade your self-hosted WordPress site and see it here by connecting Jetpack.
+  Here's an overview of your BlogEngine sites. From here, you can manage your posts, pages, comments, and your BlogEngine site's appearance.Create Another BlogEngine. Upgrade your self-hosted BlogEngine site and see it here by connecting Jetpack.
 </div>
 <div class="span5">
-  <%= @blogs %>
   <% @blogs.each do |user_role, blog_array| %>
     <h5><%= blogs_access(user_role) %></h5>
-    <%= render :partial => "blogs/blog", :collection => Blog.all %>
+    <%= render :partial => "blogs/blog", :collection => blog_array %>
   <% end %>
 </div>
