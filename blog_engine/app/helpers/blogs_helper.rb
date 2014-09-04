@@ -3,7 +3,7 @@ module BlogsHelper
   def blogs_access user_role   
 
     case user_role
-    when 'Blog Owner', 'Admin'
+    when 'Blog Owner'
       'Blogs I Own'
     when 'Blog Contributor'
       'Blog I contribute To'

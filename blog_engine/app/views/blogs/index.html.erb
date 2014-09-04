@@ -7,7 +7,9 @@
 </div>
 <div class="span5">
   <% @blogs.each do |user_role, blog_array| %>
-    <h5><%= blogs_access(user_role) %></h5>
-    <%= render :partial => "blogs/blog", :collection => blog_array %>
+    <ul>
+      <h5><%= blogs_access(user_role) %></h5>
+      <%= render :partial => "blogs/blog", :collection => blog_array %>
+    </ul>
   <% end %>
 </div>

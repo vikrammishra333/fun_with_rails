@@ -1,8 +1,19 @@
-<tr>
-	<td><%= blog.title %></td>
-	<td><%= blog.blog_address %></td>
-	<td><%= blog.description %></td>
-	<td><%= link_to 'Show', blog %></td>
-	<td><%= link_to 'Edit', edit_blog_path(blog) %></td>
-	<td><%= link_to 'Destroy', blog, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</tr>
+<li>
+  <div class="blog-head">
+    <div class="right-column">
+      <a target="_blank" href="#" class="newpost">
+        <span class="noticon noticon-edit"></span>Add a New Post
+      </a>
+    </div>
+    <img class="mshots" src="https://s-ssl.wordpress.com/mshots/v1/rordeveloper.wordpress.com?w=75" alt="av" width="75" height="56">
+    <div class="blog-title">
+      <h3>
+        <%= link_to blog.title, :href => "#", :target => "_blank", :title => blog.title %>
+      </h3>
+      <h4><%= blog.title %></h4>
+    </div>
+  </div>
+  <div class="blog-details">
+    <%= blog.description %>
+  </div>
+</li>
