@@ -18,11 +18,15 @@
       <div class="left-division">
 
         <div class="header">
-
+          <div class="logo"></div>
+          <div class="desc">
+            rwete
+          rtyey'thyrt
+          </div>
+          <%#= render :partial => 'layouts/navbar' %>
         </div>
-        <div class="row">
-          <%= render :partial => 'layouts/navbar' %>
-          <div class="span7">
+        <div class="main row">
+          <div class="span9">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
@@ -31,9 +35,9 @@
           </div><!--/span-->
         </div><!--/row-->
 
-        <footer>
+        <div class="footer">
           <p>&copy; Company 2014</p>
-        </footer>
+        </div>
 
       </div>
 
