@@ -1,15 +1,48 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>FullStackRor</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<%= yield %>
+<html lang="en">
 
-</body>
+  <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "FullStackRoR" %></title>
+    <%= csrf_meta_tags %>
+    <%= render :partial => 'layouts/assets' %>
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="left-division">
+
+        <div class="header">
+
+        </div>
+        <div class="row">
+          <%= render :partial => 'layouts/navbar' %>
+          <div class="span7">
+            <%= bootstrap_flash %>
+            <%= yield %>
+          </div>
+          <div class="span3">
+            <%= render :partial => 'layouts/sidebar' %>
+          </div><!--/span-->
+        </div><!--/row-->
+
+        <footer>
+          <p>&copy; Company 2014</p>
+        </footer>
+
+      </div>
+
+      <div class="right-division"></div>
+
+      <div class="clear"></div>
+
+    </div> <!-- /container -->
+
+  </body>
+
 </html>
